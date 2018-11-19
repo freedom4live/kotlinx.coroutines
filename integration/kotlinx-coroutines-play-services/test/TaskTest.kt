@@ -79,7 +79,7 @@ class TaskTest : TestBase() {
             runTest { task.await() }
         } catch (e: RuntimeExecutionException) {
             Assert.assertFalse(task.isSuccessful)
-            Assert.assertTrue(e.cause is OutOfMemoryError)
+            Assert.assertTrue(e.cause?.cause is OutOfMemoryError)
         }
     }
 
